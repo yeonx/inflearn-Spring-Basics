@@ -1,6 +1,7 @@
 package hello.core.order;
 
 public class Order {
+
     private Long memberId;
     private String itemName;
     private int itemPrice;
@@ -13,7 +14,7 @@ public class Order {
         this.discountPrice = discountPrice;
     }
 
-    public int calculaterPrice(){
+    public int calculatePrice(){
         return itemPrice-discountPrice;
     }
 
