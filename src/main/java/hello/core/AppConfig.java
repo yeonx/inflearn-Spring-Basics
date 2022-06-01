@@ -12,7 +12,7 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration //있어야 싱글톤 유지됨
 public class AppConfig {
 
     //@Bean memberService -> new MemoryMemberRepository()
