@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor //이 것을 사용하면
+//@RequiredArgsConstructor //이 것을 사용하면
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;// = new MemoryMemberRepository();
@@ -19,12 +19,21 @@ public class OrderServiceImpl implements OrderService{
     //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
     private final DiscountPolicy discountPolicy;
 
-    //이게 필요없음
-//    @Autowired
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
+//    // 필드 주입이란 @Autowired private final MemberRepository memberRepository;
+//    public void setMemberRepository(MemberRepository memberRepository){
+//        this.memberRepository=memberRepository;
+//    }
+//
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
 //        this.discountPolicy = discountPolicy;
 //    }
+
+    //    이게 필요없음
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
 
     @Override
