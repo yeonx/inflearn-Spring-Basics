@@ -1,6 +1,9 @@
 package hello.core.lifecycle;
 
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class NetworkClient {
 
     private String url;
@@ -29,13 +32,14 @@ public class NetworkClient {
     }
 
 
+    @PostConstruct
     public void init(){ //의존관계 후에 호출
         System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메시지");
     }
 
-
+    @PreDestroy
     public void close(){
         System.out.println("NetworkClient.close");
         disconnect();
